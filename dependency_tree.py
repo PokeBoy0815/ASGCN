@@ -16,7 +16,7 @@ class WhitespaceTokenizer(object):
         spaces = [True] * len(words)
         return Doc(self.vocab, words=words, spaces=spaces)
 
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load('de_core_news_sm')
 nlp.tokenizer = WhitespaceTokenizer(nlp.vocab)
 
 def dependency_adj_matrix(text):
@@ -48,6 +48,7 @@ def process(filename):
     fout.close() 
 
 if __name__ == '__main__':
+    '''
     process('./datasets/acl-14-short-data/train.raw')
     process('./datasets/acl-14-short-data/test.raw')
     process('./datasets/semeval14/restaurant_train.raw')
@@ -58,3 +59,9 @@ if __name__ == '__main__':
     process('./datasets/semeval15/restaurant_test.raw')
     process('./datasets/semeval16/restaurant_train.raw')
     process('./datasets/semeval16/restaurant_test.raw')
+    process('./datasets/germeval/germeval_test.raw')
+    process('./datasets/germeval/germeval_train.raw')
+    process('./datasets/germeval/germeval_train_adjusted.raw')
+    process('./datasets/germeval/germeval_test_adjusted.raw')'''
+    process('./datasets/mobasa/mobasa_test.raw')
+    process('./datasets/mobasa/mobasa_train_plus.raw')

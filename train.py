@@ -110,8 +110,9 @@ class Instructor:
                 t_inputs = [t_sample_batched[col].to(opt.device) for col in self.opt.inputs_cols]
                 t_targets = t_sample_batched['polarity'].to(opt.device)
                 t_outputs = self.model(t_inputs)
-
+                #print(torch.argmax(t_outputs, -1))
                 n_test_correct += (torch.argmax(t_outputs, -1) == t_targets).sum().item()
+
                 n_test_total += len(t_outputs)
 
                 if t_targets_all is None:
